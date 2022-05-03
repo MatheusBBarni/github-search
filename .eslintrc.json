@@ -34,7 +34,11 @@
     "import/extensions": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
     "import/no-unresolved": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "prefer-const": "off",
+    "no-use-before-define": "off",
+    "no-nested-ternary": "off",
+    "react-hooks/exhaustive-deps": "off"
   },
   "settings": {
     "react": {

@@ -12,6 +12,9 @@ export default createGlobalStyle`
     --light-dark: #434C5E;
     --lightish-dark: #4C566A;
     --grey: #3B4252;
+
+    --normal: 400;
+    --bold: 700;
   }
   * {
     margin: 0;
@@ -31,5 +34,9 @@ export default createGlobalStyle`
     cursor: pointer;
     border: none;
     background: none;
+  }
+
+  .App {
+    width: 100%;
   }
 `
