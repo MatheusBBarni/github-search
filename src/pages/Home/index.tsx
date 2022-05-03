@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import Button from '../../components/Button'
 import Input from '../../components/Input'
+import Loading from '../../components/Loading'
 import { API_URL } from '../../config/constants'
 import * as S from './styles'
 
@@ -32,12 +34,13 @@ function Home() {
 
     const response = await fetch(`${API_URL}/users/${githubUser}`)
 
-    const data = await response.json()
-
     if (response.status !== 200) {
       setSearchStatus('error')
+      setGithubUser('')
       return
     }
+
+    const data = await response.json()
 
     setSearchStatus('idle')
 
@@ -48,9 +51,19 @@ function Home() {
     <S.Container>
       <S.Box>
         {searchStatus === 'pending' ? (
-          <h1>loading</h1>
+          <Loading />
         ) : searchStatus === 'error' ? (
-          <h1>Error</h1>
+          <>
+            <S.ErrorMessage>User not found</S.ErrorMessage>
+            <Button
+              variant="primary"
+              onClick={() => {
+                setSearchStatus('idle')
+              }}
+            >
+              Try again
+            </Button>
+          </>
         ) : (
           <Input
             label="Github User"

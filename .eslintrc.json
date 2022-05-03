@@ -38,7 +38,9 @@
     "prefer-const": "off",
     "no-use-before-define": "off",
     "no-nested-ternary": "off",
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "react/require-default-props": "off",
+    "react/no-unused-prop-types": "off"
   },
   "settings": {
     "react": {
