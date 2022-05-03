@@ -13,6 +13,8 @@ export default createGlobalStyle`
     --lightish-dark: #4C566A;
     --grey: #3B4252;
 
+    --yellow: #ffdb4d;
+
     --normal: 400;
     --bold: 700;
   }

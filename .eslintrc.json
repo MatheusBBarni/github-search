@@ -40,7 +40,9 @@
     "no-nested-ternary": "off",
     "react-hooks/exhaustive-deps": "off",
     "react/require-default-props": "off",
-    "react/no-unused-prop-types": "off"
+    "react/no-unused-prop-types": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "camelcase": "off"
   },
   "settings": {
     "react": {

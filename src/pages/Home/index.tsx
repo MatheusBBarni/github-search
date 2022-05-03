@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import Button from '../../components/Button'
 import Input from '../../components/Input'
@@ -9,6 +9,7 @@ import * as S from './styles'
 
 function Home() {
   const navigate = useNavigate()
+  const location = useLocation()
 
   const [githubUser, setGithubUser] = useState<string>('')
   const [searchStatus, setSearchStatus] = useState<
@@ -29,6 +30,14 @@ function Home() {
     }
   }, [githubUser])
 
+  useEffect(() => {
+    const { state } = location
+
+    if (state && (state as { error: string }).error) {
+      setSearchStatus('error')
+    }
+  }, [location])
+
   const searchUser = async () => {
     setSearchStatus('pending')
 
@@ -44,7 +53,7 @@ function Home() {
 
     setSearchStatus('idle')
 
-    navigate('/user', { state: { user: data } })
+    navigate(`/user/${githubUser}`, { state: { user: data } })
   }
 
   return (
